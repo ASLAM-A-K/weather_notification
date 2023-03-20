@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+<t t-name="WeatherSystray" owl="1">
+    <div class="check">
+    <Dropdown class="'o_switch_company_menu d-none d-md-block'" position="'bottom-end'" >
+        <t t-set-slot="toggler">
+            <i id='weather' class="fa fa-cloud" role="img" aria-label="Weather Notification"/>
+        </t>
+           <body>
+                    <div class="container">
+                      <t t-if="weather.api">
+                        <br/>
+                        <div class="date_month" style="font-weight: bold;"><t t-esc="weather.date_month"/></div>
+                        <div class="temperature"><span style="font-size: 40px;font-weight: bold;">
+                            <t t-esc="weather.temperature"/><t t-esc="weather.weather_type"/>
+                        </span>
+                         <img src="/weather_notification/static/src/img/cloud.svg" style="width: 117px;margin-left: 29px;height: auto;margin-top: -53px;margin-bottom: -54px;"/>
+                        </div>
+                        <div class="summary" style="font-weight: bold;"><t t-esc="weather.summary"/></div>
+                        <div class="location" style="font-weight: bold;">Near <t t-esc="weather.location"/></div>
+                        <div class="location" style="font-size: 15px; font-weight: bold;" >Last Update: </div>
+                        <div class="date" style="font-weight: bold;"><t t-esc="weather.update_date"/> </div>
+                      </t>
+                             <t t-else="">Please add API Key</t>
+                    </div>
+            </body>
+    </Dropdown>
+    </div>
+</t>
+</templates>
+
